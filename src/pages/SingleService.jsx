@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { ExpData } from "../utils/Data/Exprence";
 
 function SingleService() {
@@ -11,11 +12,22 @@ function SingleService() {
   console.log(singleItem);
   return (
     <div className="container p-5">
-      <p>single page{id}</p>
-      <p>{singleItem[0].title}</p>
-      <p>{singleItem[0].id}</p>
-      <p>{singleItem[0].location}</p>
       <img src={singleItem[0].image} alt="" />
+      <div className="row">
+        <div className="col-lg-6">
+          <p>single page{id}</p>
+          <p>{singleItem[0].title}</p>
+          <p>{singleItem[0].id}</p>
+          <p>{singleItem[0].location}</p>
+        </div>
+        <div className="col-lg-6 text-center">
+          <button className="btn btn-primary">
+            <Link style={{ color: "white" }} to="/checkOut">
+              Reserve
+            </Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

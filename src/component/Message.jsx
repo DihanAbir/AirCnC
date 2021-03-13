@@ -1,6 +1,6 @@
 import React from "react";
 
-function Product({ item }) {
+function Message({ item }) {
   console.log();
   return (
     <div className="m-4">
@@ -20,4 +20,4 @@ function Product({ item }) {
   );
 }
 
-export default Product;
+export default Message;
