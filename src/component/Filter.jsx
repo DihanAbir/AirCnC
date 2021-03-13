@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import DatePicker from "../utils/Date";
 import BasicTextFields from "../utils/Input";
 import PersonSelect from "../utils/PersonSelect";
@@ -47,7 +48,11 @@ function Filter() {
         ) : (
           ""
         )}
-        <button className="btn btn-danger">Search</button>
+        <button className="btn btn-danger">
+          <Link style={{ color: "white" }} to="/search">
+            Search
+          </Link>
+        </button>
       </div>
     </div>
   );

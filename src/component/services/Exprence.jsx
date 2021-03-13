@@ -10,7 +10,16 @@ function Exprence() {
 
   return (
     <div>
-      <h5>Exprence</h5>
+      <div className="row d-flex">
+        <div className="col-lg-6 ml-auto">
+          <h5>Exprence</h5>
+        </div>
+        <div className="col-lg-6 d-flex flex-row-reverse">
+          <button className="seemoreBtn btn btn-light">
+            <Link to="/allExprence">See More</Link>
+          </button>
+        </div>
+      </div>
       <div className="row">
         {data[0].slice(0, 4).map((item) => (
           <div className="col-3">

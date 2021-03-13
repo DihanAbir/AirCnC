@@ -10,7 +10,18 @@ function Home() {
 
   return (
     <div>
-      <h4>Home section</h4>
+      <div className="row d-flex">
+        <div className="col-lg-6 ml-auto">
+          <h5>Home Service</h5>
+        </div>
+        <div className="col-lg-6 d-flex flex-row-reverse">
+          <button className="seemoreBtn btn btn-light">
+            <b>
+              <Link to="/allServices">See More</Link>
+            </b>
+          </button>
+        </div>
+      </div>
 
       <Carousel itemsToShow={4} enableAutoPlay={false} autoPlaySpeed={7000}>
         {data[0].slice(0, 7).map((item) => (
