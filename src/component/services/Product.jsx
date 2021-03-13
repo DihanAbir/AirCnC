@@ -1,9 +1,10 @@
 import React from "react";
 
-function Product() {
+function Product({ item }) {
+  console.log();
   return (
     <div>
-      <p>Services section</p>
+      <p>Product section</p>
     </div>
   );
 }

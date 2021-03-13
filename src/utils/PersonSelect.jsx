@@ -29,17 +29,17 @@ function PersonSelect({ setAdult, setBaby, setChild }) {
       >
         <div className="row">
           <div className="col-4">Adult</div>
-          <div className="col-4 offset-4">
+          <div className="col-4 offset-2">
             <div className={classes.root}>
               <Adult setAdult={setAdult} />
             </div>
           </div>
           <div className="col-4">Child</div>
-          <div className="col-4 offset-4">
+          <div className="col-4 offset-2">
             <Child setChild={setChild} />
           </div>
           <div className="col-4">Baby</div>
-          <div className="col-4 offset-4">
+          <div className="col-4 offset-2">
             <Baby setBaby={setBaby} />
           </div>
         </div>
