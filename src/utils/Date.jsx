@@ -32,7 +32,7 @@ function Date({ setCheckIn, checkIn, setCheckOut }) {
             id="date"
             label="CheckIn"
             type="date"
-            onload="getDate()"
+            onLoad="getDate()"
             defaultValue="getDate()"
             onChange={handleChangeDateIn}
             className={classes.textField}
@@ -48,6 +48,7 @@ function Date({ setCheckIn, checkIn, setCheckOut }) {
             id="date"
             label="CheckOut"
             type="date"
+            onLoad="getDate()"
             defaultValue="getDate()"
             onChange={handleChangeDateOut}
             className={classes.textField}

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Nav from "../component/Nav";
+import { cartContext } from "../App";
 import { ExpData } from "../utils/Data/Exprence";
 
 function SearchResult() {
-  const filteredDatas = ExpData;
+  const [cart, setCart] = useContext(cartContext);
+
+  const [searchValue, setSearchValue] = useState("");
+  const lction = cart.filterData.location.location;
+  console.log(lction);
+  const data = ExpData;
+
+  const filteredDatas = data.filter((division) => division.location === lction);
+
   const tags = [
     "cancellation flexibility",
     "price",
@@ -12,15 +20,42 @@ function SearchResult() {
     "instance book",
     "More Filter",
   ];
+
   return (
-    <div className="container-fluid">
+    <div className="container">
       <div>
-        <p className="text-center mt-5">Search result</p>
+        <div className="mt-4 border text-center" style={{ width: "100%" }}>
+          <input
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+            }}
+            style={{ width: "60%" }}
+            type="search"
+            placeholder="search Location"
+          />
+        </div>
+        <p className="text-center mt-5">baby: {cart.filterData.baby.baby}</p>
         {/* tags end  */}
         <div className="row">
           <div className="col-6">
             <p>252 stay for april 13-17, 3 guests</p>
-            <h4>Stay in Dhaka Division</h4>
+            <b style={{ color: "#1954E8" }}>
+              Total Result : {filteredDatas.length}
+            </b>
+            <h4 style={{ textTransform: "capitalize" }}>
+              Stay in{" "}
+              <span
+                style={{
+                  color: "salmon",
+                  fontSize: "24px",
+                  fontWeight: "bold",
+                  textTransform: "uppercase",
+                }}
+              >
+                {cart.filterData.location.location}
+              </span>{" "}
+              Division
+            </h4>
             {tags.map((tag) => (
               <button
                 style={{ background: "#E8E7E6", borderRadius: "30px" }}

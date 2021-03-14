@@ -8,7 +8,7 @@ import PersonSelect from "../utils/PersonSelect";
 import moment from "moment";
 import { cartContext } from "../App";
 
-function Filter() {
+function ReceiveReservationDetail() {
   const [cart, setCart] = useContext(cartContext);
   // states
   const [arrow, setArrow] = useState(true);
@@ -17,7 +17,7 @@ function Filter() {
   const [child, setChild] = useState(0);
   const [checkIn, setCheckIn] = useState(moment(new Date()));
   const [checkOut, setCheckOut] = useState(moment(new Date()));
-  const [location, setlocation] = useState("");
+  const [location, setlocation] = useState(cart.singleItem[0].location);
 
   const [filterData, setFilterData] = useState({
     location: { location },
@@ -52,10 +52,8 @@ function Filter() {
         height: "80vh",
       }}
     >
-      <p>Where Do You Want To Go</p>
+      <p>Enter details for reservation</p>
       <div className="p-3">
-        <BasicTextFields setlocation={setlocation} />
-
         {/* date picker */}
         <DatePicker
           checkOut={checkOut}
@@ -90,7 +88,7 @@ function Filter() {
 
         {/* Button selection using condition
          */}
-        {filterData.location === "" ||
+        {/* {filterData.location === "" ||
         filterData.checkIn === moment(new Date()).format("YYYY-MM-DD") ||
         adult === 0 ? (
           <button style={{ width: "100%" }} className="mt-3 btn btn-danger">
@@ -98,15 +96,11 @@ function Filter() {
           </button>
         ) : (
           <Link style={{ color: "white" }} to="/search">
-            <button
-              style={{ width: "100%" }}
-              onClick={() => console.log("filter page theke : ${filterData}")}
-              className="mt-3 btn btn-danger"
-            >
+            <button style={{ width: "100%" }} className="mt-3 btn btn-danger">
               Search
             </button>
           </Link>
-        )}
+        )} */}
 
         {/* Button selection using condition
          */}
@@ -115,4 +109,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export default ReceiveReservationDetail;

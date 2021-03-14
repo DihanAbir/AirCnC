@@ -30,6 +30,26 @@ export const ExpData = [
       "https://images.unsplash.com/photo-1612447396985-24034884523c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
+    id: "adsafdfdoaidas333",
+    location: "Japan",
+    type: "fallin water",
+    title: "water fall in japan",
+    price: "60",
+    review: "24",
+    image:
+      "https://images.unsplash.com/photo-1612447396985-24034884523c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: "adsadogggaidas333",
+    location: "Japan",
+    type: "fallin water",
+    title: "water fall in japan",
+    price: "60",
+    review: "24",
+    image:
+      "https://images.unsplash.com/photo-1612447396985-24034884523c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
     id: "adsadoaidas454",
     location: "Dhaka",
     type: "walking",
