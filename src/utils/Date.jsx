@@ -14,8 +14,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Date() {
+function Date({ setCheckIn, checkIn }) {
   const classes = useStyles();
+
+  const handleChangeDate = (e) => {
+    setCheckIn(e.target.value);
+  };
+
+  console.log(checkIn);
 
   return (
     <div className="row">
@@ -23,9 +29,10 @@ function Date() {
         <form className={classes.container} noValidate>
           <TextField
             id="date"
-            label="Birthday"
+            label="CheckIn"
             type="date"
             defaultValue="2017-05-24"
+            onChange={handleChangeDate}
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
@@ -37,7 +44,7 @@ function Date() {
         <form className={classes.container} noValidate>
           <TextField
             id="date"
-            label="Birthday"
+            label="CheckOut"
             type="date"
             defaultValue="2017-05-24"
             className={classes.textField}

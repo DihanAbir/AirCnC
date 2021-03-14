@@ -14,7 +14,6 @@ function SearchResult() {
   ];
   return (
     <div className="container-fluid">
-      <Nav></Nav>
       <div>
         <p className="text-center mt-5">Search result</p>
         {/* tags end  */}
@@ -35,30 +34,30 @@ function SearchResult() {
             {/* filter data show */}
             <div>
               {filteredDatas.map((item) => (
-                // <Link to={"/singleService/" + item.id}>
-                // </Link>
-                <div className="row">
-                  <div className="col-lg-6 my-3">
-                    <img src={item.image} className="img-thumbnail" alt="" />
-                  </div>
-                  <div
-                    className="col-6 my-3 border"
-                    style={{
-                      background: "#E8E7E6",
-                      padding: "30px",
-                      borderRadius: "20px",
-                    }}
-                  >
-                    <div className="Service-detials">
-                      <b>{item.location}</b>
-                      <span>-</span>
-                      <b>{item.type}</b>
-                      <br />
-                      <small>{item.title}</small>
-                      <p>review: {item.review}</p>
+                <Link to={"/singleService/" + item.id}>
+                  <div className="row">
+                    <div className="col-lg-6 my-3">
+                      <img src={item.image} className="img-thumbnail" alt="" />
+                    </div>
+                    <div
+                      className="col-6 my-3 border"
+                      style={{
+                        background: "#E8E7E6",
+                        padding: "30px",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <div className="Service-detials">
+                        <b>{item.location}</b>
+                        <span>-</span>
+                        <b>{item.type}</b>
+                        <br />
+                        <small>{item.title}</small>
+                        <p>review: {item.review}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

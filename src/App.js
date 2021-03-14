@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
+import Nav from "./component/Nav";
 import AllServices from "./pages/AllServices";
 import CheckOut from "./pages/CheckOut";
 import Landing from "./pages/Landing";
@@ -10,6 +11,7 @@ import SingleService from "./pages/SingleService";
 function App() {
   return (
     <Router>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route exact path="/singleService/:id" component={SingleService} />

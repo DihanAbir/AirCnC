@@ -16,6 +16,8 @@ function Message({ item }) {
       <p>Product section</p>
       <p>Product section</p>
       <p>Product section</p>
+      <p>Product section</p>
+      <p>Product section</p>
     </div>
   );
 }

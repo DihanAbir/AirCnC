@@ -11,12 +11,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields() {
+export default function BasicTextFields({ setlocation }) {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Location" />
+      <TextField
+        onChange={(e) => {
+          setlocation(e.target.value);
+        }}
+        id="standard-basic"
+        label="Location"
+      />
     </form>
   );
 }
