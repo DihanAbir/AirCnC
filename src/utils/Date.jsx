@@ -14,14 +14,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Date({ setCheckIn, checkIn }) {
+function Date({ setCheckIn, checkIn, setCheckOut }) {
   const classes = useStyles();
 
-  const handleChangeDate = (e) => {
+  const handleChangeDateIn = (e) => {
     setCheckIn(e.target.value);
   };
-
-  console.log(checkIn);
+  const handleChangeDateOut = (e) => {
+    setCheckOut(e.target.value);
+  };
 
   return (
     <div className="row">
@@ -31,8 +32,9 @@ function Date({ setCheckIn, checkIn }) {
             id="date"
             label="CheckIn"
             type="date"
-            defaultValue="2017-05-24"
-            onChange={handleChangeDate}
+            onload="getDate()"
+            defaultValue="getDate()"
+            onChange={handleChangeDateIn}
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
@@ -46,7 +48,8 @@ function Date({ setCheckIn, checkIn }) {
             id="date"
             label="CheckOut"
             type="date"
-            defaultValue="2017-05-24"
+            defaultValue="getDate()"
+            onChange={handleChangeDateOut}
             className={classes.textField}
             InputLabelProps={{
               shrink: true,

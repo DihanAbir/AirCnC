@@ -16,6 +16,9 @@ function Filter() {
   const [checkIn, setCheckIn] = useState(
     moment(new Date()).format("YYYY-MM-DD")
   );
+  const [checkOut, setCheckOut] = useState(
+    moment(new Date()).format("YYYY-MM-DD")
+  );
   const [location, setlocation] = useState("");
 
   const [filterData, setFilterData] = useState({
@@ -23,11 +26,18 @@ function Filter() {
   });
 
   useEffect(() => {
-    setFilterData({ location: { location }, checkIn: { checkIn } });
-  }, [location, checkIn]);
+    setFilterData({
+      location: { location },
+      checkIn: { checkIn },
+      checkOut: { checkOut },
+      adult: { adult },
+      baby: { baby },
+      child: { child },
+    });
+  }, [location, checkIn, checkOut, adult, baby, child]);
 
   // functions
-  console.log(filterData);
+
   const arrowHandler = () => {
     setArrow(!arrow);
   };
@@ -43,10 +53,19 @@ function Filter() {
         <BasicTextFields setlocation={setlocation} />
 
         {/* date picker */}
-        <DatePicker checkIn={checkIn} setCheckIn={setCheckIn} />
+        <DatePicker
+          checkOut={checkOut}
+          setCheckOut={setCheckOut}
+          checkIn={checkIn}
+          setCheckIn={setCheckIn}
+        />
         <div className="row mt-3">
           <div className="col-10">
             Adult:{adult} Child: {child} Baby: {baby}
+            <br />
+            <small className="mx-auto text-danger">
+              **Have one adult is mendetory!
+            </small>
           </div>
           <div className="col-2">
             <button className="btn btn-danger" onClick={arrowHandler}>
@@ -64,11 +83,29 @@ function Filter() {
         ) : (
           ""
         )}
-        <button className="btn btn-danger">
-          <Link style={{ color: "white" }} to="/search">
-            Search
-          </Link>
-        </button>
+
+        {/* Button selection using condition
+         */}
+        {filterData.location === "" ||
+        filterData.checkIn === moment(new Date()).format("YYYY-MM-DD") ||
+        adult === 0 ? (
+          <button style={{ width: "100%" }} className="mt-3 btn btn-danger">
+            Fill inputes with the Information
+          </button>
+        ) : (
+          <button
+            style={{ width: "100%" }}
+            onClick={() => console.log(filterData)}
+            className="mt-3 btn btn-danger"
+          >
+            <Link style={{ color: "white" }} to="/search">
+              Search
+            </Link>
+          </button>
+        )}
+
+        {/* Button selection using condition
+         */}
       </div>
     </div>
   );

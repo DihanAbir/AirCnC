@@ -63,3 +63,8 @@ ul li a {
 .services:hover .Service-detials{
     display: inline-block;
 }
+
+
+.noClickBtn.disabled{
+    pointer-events: none;
+  }
