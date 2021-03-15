@@ -1,7 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { showCart } from "../../StatesManagement/Actions/Heade.actions";
 
 function Nav() {
+  // const dispatch = useDispatch();
+
+  // const handleDispatch = () => {
+  //   dispatch(showCart);
+  // };
+
   return (
     <div className="container ">
       <div className="row ">
