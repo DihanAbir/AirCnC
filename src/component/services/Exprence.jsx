@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { ExpData } from "../../utils/Data/Exprence";
 import Product from "./Product";
 
-function Exprence() {
-  const datas = ExpData;
+function Exprence(props) {
+  const datas = props.services;
   const [data, setData] = useState([datas]);
   // console.log(data);
 
@@ -46,4 +47,9 @@ function Exprence() {
   );
 }
 
-export default Exprence;
+const mapStateToProps = (state) => {
+  return { services: state.services };
+};
+
+const connectedComponent = connect(mapStateToProps, null);
+export default connectedComponent(Exprence);

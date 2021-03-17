@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Carousel from "react-elastic-carousel";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { ExpData } from "../../utils/Data/Exprence";
+// import { ExpData } from "../../utils/Data/Exprence";
 
-function Home() {
-  const datas = ExpData;
+function Home(props) {
+  const datas = props.services;
   const [data, setData] = useState([datas]);
 
+  // console.log(props.services);
   return (
     <div>
       <div className="row d-flex">
@@ -51,4 +53,9 @@ function Home() {
   );
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return { services: state.Homeservices };
+};
+
+const connectedComponent = connect(mapStateToProps, null);
+export default connectedComponent(Home);

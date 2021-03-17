@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ExpData } from "../utils/Data/Exprence";
+import { HomeData } from "../utils/Data/Exprence";
 
 function AllServices() {
-  const datas = ExpData;
+  const datas = HomeData;
   return (
     <div className="container">
-      <h1 className="text-center my-5">All Home services</h1>
+      <h1 className="text-center my-5">Allsss Home services</h1>
       <div className="row">
         {datas.map((item) => (
           <div className="services col-4 my-3">

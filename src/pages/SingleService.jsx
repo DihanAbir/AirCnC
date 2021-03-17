@@ -3,16 +3,19 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { cartContext } from "../App";
 import Filter from "../component/Filter";
-import { ExpData } from "../utils/Data/Exprence";
+import { ExpData, HomeData } from "../utils/Data/Exprence";
 
 function SingleService() {
   const [cart, setCart] = useContext(cartContext);
   const { id } = useParams();
 
   const datas = ExpData;
+  const Homedatas = HomeData;
+  const dataE = datas.filter((item) => item.id === id);
+  const dataH = Homedatas.filter((item) => item.id === id);
+  const singleItem = dataE.length ? dataE : dataH;
 
-  const singleItem = datas.filter((item) => item.id === id);
-  // console.log(singleItem);
+  console.log(singleItem);
   return (
     <div className="container p-5">
       <div className="row">
