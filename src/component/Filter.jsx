@@ -93,7 +93,7 @@ function Filter() {
         {filterData.location === "" ||
         filterData.checkIn === moment(new Date()).format("YYYY-MM-DD") ||
         adult === 0 ? (
-          <button style={{ width: "100%" }} className="mt-3 btn btn-danger">
+          <button style={{ width: "100%" }} className="mt-3 btn  btn-primary">
             Fill inputes with the Information
           </button>
         ) : (
@@ -101,7 +101,7 @@ function Filter() {
             <button
               style={{ width: "100%" }}
               onClick={() => console.log("filter page theke : ${filterData}")}
-              className="mt-3 btn btn-danger"
+              className="mt-3 btn-primary"
             >
               Search
             </button>

@@ -10,35 +10,54 @@ function Exprence(props) {
   // console.log(data);
 
   return (
-    <div>
+    <div className="pt-2 pb-5 my-2 border-bottom">
       <div className="row d-flex">
         <div className="col-lg-6 ml-auto">
           <h5>Exprence</h5>
         </div>
         <div className="col-lg-6 d-flex flex-row-reverse">
           <button className="seemoreBtn btn btn-light">
-            <Link to="/allExprence">See More</Link>
+            <Link className="Link" to="/allExprence">
+              <b>See More</b>
+            </Link>
           </button>
         </div>
       </div>
       <div className="row">
         {data[0].slice(0, 4).map((item) => (
           <div className="col-3">
-            <Link to={"/singleService/" + item.id}>
+            <Link className="Link" to={"/singleService/" + item.id}>
               <div
                 className=" border"
                 style={{
                   backgroundSize: "cover",
-                  backgroundImage: `url(${item.image})`,
+                  // backgroundImage: `url(${item.image})`,
                   height: "200px",
                 }}
-              ></div>
+              >
+                <div className="imgcontainer">
+                  <img
+                    style={{ height: "200px" }}
+                    src={item.image}
+                    alt="Avatar"
+                    className="image"
+                  />
+                  <div className="overlay">
+                    <div
+                      style={{ textTransform: "capitalize" }}
+                      className="text"
+                    >
+                      {item.title}
+                    </div>
+                  </div>
+                </div>
+              </div>
               <b>{item.location}</b>
               <span>-</span>
               <b>{item.type}</b>
               <br />
-              <small>{item.title}</small>
-              <p>review: {item.review}</p>
+              <p className="text-gray">{item.title}</p>
+              <b className="text-gray">review: {item.review}</b>
             </Link>
           </div>
         ))}

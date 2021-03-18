@@ -3,11 +3,12 @@ import { cartContext } from "../App";
 import Steppers from "../utils/Stepper";
 
 function CheckOut() {
-  const [cart, setCart] = useContext(cartContext);
+  const [cart, setCart, signedIn1, setSignIn1] = useContext(cartContext);
   console.log(cart);
   return (
     <div className="container">
       <p>check out page</p>
+      <p>Name: {signedIn1.displayName}</p>
       <div className="row">
         <div className="col-lg-6 border">
           <Steppers />

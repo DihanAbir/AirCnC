@@ -19,7 +19,9 @@ function Home(props) {
         <div className="col-lg-6 d-flex flex-row-reverse">
           <button className="seemoreBtn btn btn-light">
             <b>
-              <Link to="/allServices">See More</Link>
+              <Link className="Link" to="/allServices">
+                See More
+              </Link>
             </b>
           </button>
         </div>
@@ -28,24 +30,40 @@ function Home(props) {
       <Carousel itemsToShow={4} enableAutoPlay={false} autoPlaySpeed={7000}>
         {data[0].slice(0, 7).map((item) => (
           // <Slider filtereditems={filtereditems} />
-          <Link to={"/singleService/" + item.id}>
-            <div>
-              <div
-                className=" border "
-                style={{
-                  backgroundSize: "cover",
-                  backgroundImage: `url(${item.image})`,
-                  height: "200px",
-                  width: "100%",
-                }}
-              ></div>
-              <b>{item.location}</b>
-              <span>-</span>
-              <b>{item.type}</b>
-              <br />
-              <small>{item.title}</small>
-              <p>review: {item.review}</p>
+          <Link className="Link p-2" to={"/singleService/" + item.id}>
+            <div
+              className=" border"
+              style={{
+                backgroundSize: "cover",
+                // backgroundImage: `url(${item.image})`,
+                height: "200px",
+              }}
+            >
+              <div className="imgcontainer">
+                <img
+                  style={{ height: "200px" }}
+                  src={item.image}
+                  alt="Avatar"
+                  className="image"
+                />
+                <div className="overlay">
+                  <div
+                    style={{
+                      textTransform: "capitalize",
+                    }}
+                    className="text"
+                  >
+                    {item.title}
+                  </div>
+                </div>
+              </div>
             </div>
+            <b>{item.location}</b>
+            <span>-</span>
+            <b>{item.type}</b>
+            <br />
+            <p className="text-gray">{item.title}</p>
+            <b className="text-gray">review: {item.review}</b>
           </Link>
         ))}
       </Carousel>

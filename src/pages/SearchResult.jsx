@@ -2,16 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../App";
 import { ExpData } from "../utils/Data/Exprence";
+import Map from "../utils/map";
 
 function SearchResult() {
   const [cart, setCart] = useContext(cartContext);
 
   const [searchValue, setSearchValue] = useState("");
-  const lction = cart.filterData.location.location;
+  const lction = cart.filterData.location.location
+    ? cart.filterData.location.location
+    : "Dhaka";
   console.log(lction);
   const data = ExpData;
 
-  const filteredDatas = data.filter((division) => division.location === lction);
+  // const filteredDatas = data.filter((division) => division.location === lction);
+  const filteredDatas = ExpData;
 
   const tags = [
     "cancellation flexibility",
@@ -22,7 +26,7 @@ function SearchResult() {
   ];
 
   return (
-    <div className="container">
+    <div className="container-fluid p-5">
       <div>
         <div className="mt-4 border text-center" style={{ width: "100%" }}>
           <input
@@ -34,13 +38,15 @@ function SearchResult() {
             placeholder="search Location"
           />
         </div>
-        <p className="text-center mt-5">baby: {cart.filterData.baby.baby}</p>
+        <p className="text-center mt-5">
+          baby: {cart ? cart.filterData.baby.baby : 0}
+        </p>
         {/* tags end  */}
-        <div className="row">
-          <div className="col-6">
+        <div className="row d-flex">
+          <div className="col-7">
             <p>252 stay for april 13-17, 3 guests</p>
             <b style={{ color: "#1954E8" }}>
-              Total Result : {filteredDatas.length}
+              Total Result : {filteredDatas.length ? filteredDatas.length : 0}
             </b>
             <h4 style={{ textTransform: "capitalize" }}>
               Stay in{" "}
@@ -52,14 +58,14 @@ function SearchResult() {
                   textTransform: "uppercase",
                 }}
               >
-                {cart.filterData.location.location}
-              </span>{" "}
+                {cart ? cart.filterData.location.location : "Dhaka"}
+              </span>
               Division
             </h4>
             {tags.map((tag) => (
               <button
                 style={{ background: "#E8E7E6", borderRadius: "30px" }}
-                className=" ml-1 mt-2 btn btn-light border-rounded"
+                className=" ml-1 my-2 btn btn-light border-rounded"
               >
                 {tag}
               </button>
@@ -69,26 +75,44 @@ function SearchResult() {
             {/* filter data show */}
             <div>
               {filteredDatas.map((item) => (
-                <Link to={"/singleService/" + item.id}>
-                  <div className="row">
-                    <div className="col-lg-6 my-3">
-                      <img src={item.image} className="img-thumbnail" alt="" />
+                <Link className="Link" to={"/singleService/" + item.id}>
+                  <div className="searchCard">
+                    <div className="searchCard-item">
+                      <img
+                        style={{
+                          background: "#E8E7E6",
+                          borderRadius: "20px",
+                        }}
+                        src={item.image}
+                        className="img-fluid"
+                        alt=""
+                      />
                     </div>
                     <div
-                      className="col-6 my-3 border"
+                      className="searchCard-item  ml-2 mb-3 border"
                       style={{
-                        background: "#E8E7E6",
-                        padding: "30px",
+                        background: "#DFE3EE",
                         borderRadius: "20px",
                       }}
                     >
-                      <div className="Service-detials">
-                        <b>{item.location}</b>
+                      <div className="Service-detials p-4">
+                        <h4
+                          className="text-black"
+                          style={{ textTransform: "capitalize" }}
+                        >
+                          {item.location}
+                        </h4>
                         <span>-</span>
                         <b>{item.type}</b>
                         <br />
-                        <small>{item.title}</small>
-                        <p>review: {item.review}</p>
+                        <h6 className="text-gray">{item.title}</h6>
+                        <p className="text-gray">Review: {item.review}</p>
+                        <div className="d-flex justify-content-between">
+                          <p className="text-gray">
+                            Total Star: {item.review}{" "}
+                          </p>
+                          <b className="text-gray">{item.price}/night</b>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -96,27 +120,9 @@ function SearchResult() {
               ))}
             </div>
           </div>
-          <div className="col-6">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1587818542745!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              style={{ border: "0" }}
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0"
-              /* style=
-            {{
-              width: "600",
-              height: "450",
-              frameborder: "0",
-              style: "border:0;",
-              allowfullscreen: "",
-              ariaHidden: "false",
-              tabindex: "0",
-            }} */
-            ></iframe>
+
+          <div className="col-5">
+            <Map />
           </div>
         </div>
       </div>

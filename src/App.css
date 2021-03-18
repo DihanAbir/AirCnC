@@ -1,11 +1,32 @@
-body{
-
+.logo{
+    background: -webkit-linear-gradient(95deg, #48e68f, #04cc51);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 42px;
+    font-weight: bolder;
 }
-*{
+body{
+    background-color: #e7eee9;
 
 }
 .col-lg-6 {
     height: 60px;
+}
+
+
+.Link{
+    color: rgb(0, 0, 63);
+}
+.Link:hover{
+    text-decoration: none;
+    color: rgb(69, 69, 119);
+}
+
+.text-black{
+    color: black;
+}
+.text-gray{
+    color: grey;
 }
 
 ul {
@@ -68,3 +89,104 @@ ul li a {
 .noClickBtn.disabled{
     pointer-events: none;
   }
+
+  .main-section{
+    position: relative;
+    height:100%;
+    width: 100%;
+}
+
+.content{
+    position: absolute ;
+    content: "";
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, 40%);
+}
+
+
+
+/* search section  */
+.searchCard{
+    display: flex;
+}
+.searchCard-item{
+    min-height: 14rem;
+    max-height: 14rem;
+    padding: 20px 0;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.searchCard-item>img{
+    display: flex;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* landing page   */
+.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .imgcontainer{
+    min-height: 14rem;
+    max-height: 14rem;
+
+    position: relative;
+    width: 100%;
+  }
+
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #59d1a9;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .imgcontainer:hover .overlay {
+    height: 100%;
+  }
+  
+  .text {
+   word-wrap: break-word;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  
+
+  /* Login */
+.btn-primary{
+    background-color: #f3ec78;
+    background-image: linear-gradient(95deg, #2BDE8C, #57E768);
+    color: white;
+    font-size: 18px;
+    padding: 2px 25px;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: red;
+}
+.b-round{
+    border-radius: 20px;
+}
