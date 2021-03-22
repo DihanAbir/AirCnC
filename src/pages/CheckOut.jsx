@@ -7,16 +7,15 @@ function CheckOut() {
   console.log(cart);
   return (
     <div className="container">
-      <p>check out page</p>
-      <p>Name: {signedIn1.displayName}</p>
       <div className="row">
-        <div className="col-lg-6 border">
-          <Steppers />
+        <div className="col-lg-6 pt-5 mt-5">
+          <Steppers signedIn1={signedIn1} />
         </div>
         <div className="col-lg-4 offset-lg-1">
           <div className="row">
             <div className="col-8">
-              <b>{cart.singleItem[0].title}</b>
+              {cart.singleItem ? <b>{cart.singleItem.title}</b> : ""}
+
               <br />
               <small>Review: {cart.singleItem[0].review}</small>
             </div>

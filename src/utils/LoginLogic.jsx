@@ -18,18 +18,6 @@ function LoginLogic({ setSignIn, signedIn }) {
 
   const provider = new firebase.auth.GoogleAuthProvider();
 
-  const autoState = () => {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        var { displayName, photoURL, email } = user;
-        console.log(user);
-        setSignIn1({ ...signedIn1, displayName, photoURL, email });
-      } else {
-        // No user is signed in.
-      }
-    });
-  };
-
   const handelSignin = () => {
     firebase
       .auth()
@@ -54,7 +42,7 @@ function LoginLogic({ setSignIn, signedIn }) {
   };
 
   useEffect(() => {
-    autoState();
+    // autoState();
   }, [signedIn1]);
 
   console.log(signedIn);

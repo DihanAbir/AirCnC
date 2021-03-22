@@ -40,7 +40,7 @@ function Nav() {
               <Link to="/">Contact </Link>
             </li>
             <li>
-              {signedIn1?.email ? (
+              {signedIn1.email ? (
                 <button
                   onClick={signOutHandeler}
                   className="b-round btn-primary"
@@ -49,22 +49,21 @@ function Nav() {
                 </button>
               ) : (
                 <Link to="/login">
-                  <button
-                    onClick={signOutHandeler}
-                    className="b-round btn-primary"
-                  >
-                    LogIn
-                  </button>
+                  <button className="b-round btn-primary">LogIn</button>
                 </Link>
               )}
             </li>
-            <li>
-              <img
-                style={{ width: "30px", borderRadius: "50%" }}
-                src={signedIn1.photoURL}
-                alt={signedIn1.email}
-              />
-            </li>
+            {signedIn1.photoURL ? (
+              <li>
+                <img
+                  style={{ width: "30px", borderRadius: "50%" }}
+                  src={signedIn1.photoURL}
+                  alt={signedIn1.email}
+                />
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -205,7 +207,7 @@ function getStepContent(step) {
   }
 }
 
-export default function Steppers() {
+export default function Steppers({ signedIn1 }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -224,6 +226,14 @@ export default function Steppers() {
 
   return (
     <div className={classes.root}>
+      <div className="d-flex py-3 justify-content-between">
+        <p>{signedIn1.displayName}</p>
+        <img
+          style={{ width: "50px", borderRadius: "50%" }}
+          src={signedIn1.photoURL}
+          alt={signedIn1.displayName}
+        />
+      </div>
       <Stepper
         alternativeLabel
         activeStep={activeStep}
@@ -258,14 +268,35 @@ export default function Steppers() {
               >
                 Back
               </Button>
-              <Button
+              {activeStep === steps.length - 1 ? (
+                <Link className="Link text-light" to="/">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleNext}
+                    className={`my-5 ${classes.button}`}
+                  >
+                    Finish
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  className={`my-5 ${classes.button}`}
+                >
+                  Next
+                </Button>
+              )}
+              {/* <Button
                 variant="contained"
                 color="primary"
                 onClick={handleNext}
                 className={`my-5 ${classes.button}`}
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}
