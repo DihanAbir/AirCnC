@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { cartContext } from "../App";
 import Filter from "../component/Filter";
+import ReserveDetails from "../component/ReserveDetails";
 import { ExpData, HomeData } from "../utils/Data/Exprence";
 
 function SingleService() {
@@ -27,7 +28,7 @@ function SingleService() {
           <p>{singleItem[0].location}</p>
         </div>
         <div className="col-lg-6 text-center">
-          {/* <Filter /> */}
+          <ReserveDetails singleItem={singleItem} />
           <Link style={{ color: "white" }} to="/checkOut">
             <button
               onClick={() => {
