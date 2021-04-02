@@ -9,15 +9,15 @@ function CheckOut() {
     <div className="container">
       <div className="row">
         <div className="col-lg-6 pt-5 mt-5">
-          <Steppers signedIn1={signedIn1} />
+          <Steppers cart={cart} signedIn1={signedIn1} />
         </div>
-        <div className="col-lg-4 offset-lg-1">
+        <div className="col-lg-4 pt-5 offset-lg-1">
           <div className="row">
             <div className="col-8">
-              {cart.singleItem ? <b>{cart.singleItem.title}</b> : ""}
-
+              {cart.singleItem ? <b>{cart.singleItem[0].title}</b> : ""}
               <br />
-              <small>Review: {cart.singleItem[0].review}</small>
+              <p>Review: {cart.singleItem[0].review}</p>
+              <small>Review: {cart.singleItem[0].location}</small>
             </div>
             <div className="col-4">
               <img

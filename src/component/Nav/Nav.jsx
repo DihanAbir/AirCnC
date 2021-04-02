@@ -53,6 +53,13 @@ function Nav() {
                 </Link>
               )}
             </li>
+            <li>
+              {signedIn1.email ? (
+                <Link to="/admin">
+                  <button className="b-round btn-primary">Admin</button>
+                </Link>
+              ) : null}
+            </li>
             {signedIn1.photoURL ? (
               <li>
                 <img

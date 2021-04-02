@@ -207,7 +207,7 @@ function getStepContent(step) {
   }
 }
 
-export default function Steppers({ signedIn1 }) {
+export default function Steppers({ cart, signedIn1 }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -222,6 +222,20 @@ export default function Steppers({ signedIn1 }) {
 
   const handleReset = () => {
     setActiveStep(0);
+  };
+
+  const handleCheckOutServerPush = () => {
+    const bookingDetails = { ...cart.singleItem[0], ...signedIn1 };
+    console.log(bookingDetails);
+    fetch("http://localhost:4000/addBooking", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(bookingDetails),
+    })
+      .then((res) => res.json)
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -273,7 +287,7 @@ export default function Steppers({ signedIn1 }) {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    onClick={handleCheckOutServerPush}
                     className={`my-5 ${classes.button}`}
                   >
                     Finish

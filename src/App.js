@@ -15,6 +15,7 @@ import Nav from "./component/Nav/Nav";
 import AllExprence from "./pages/AllExprence";
 import AllServices from "./pages/AllServices";
 import CheckOut from "./pages/CheckOut";
+import Dashboard from "./pages/Dashboard";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import SearchResult from "./pages/SearchResult";
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/allExprence" component={AllExprence} />
           <PrivateRoute exact path="/search" component={SearchResult} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/admin" component={Dashboard} />
 
           {/* <PrivateRoute path="/checkOut" component={CheckOut} /> */}
           <PrivateRoute path="/checkOut">

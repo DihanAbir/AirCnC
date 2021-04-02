@@ -7,7 +7,9 @@ import firebaseConfig from "../Auth/firebase.config";
 import { useHistory, useLocation } from "react-router";
 import { cartContext } from "../App";
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 function LoginLogic({ setSignIn, signedIn }) {
   const [cart, setCart, signedIn1, setSignIn1] = useContext(cartContext);
@@ -28,10 +30,11 @@ function LoginLogic({ setSignIn, signedIn }) {
         var token = credential.accessToken;
         var { displayName, photoURL, email } = result.user;
         setSignIn({ ...signedIn, displayName, photoURL, email });
+        storeAuth();
         history.replace(from);
 
-        console.log(photoURL);
-        console.log(email);
+        // console.log(photoURL);
+        // console.log(email);
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -39,6 +42,17 @@ function LoginLogic({ setSignIn, signedIn }) {
         var email = error.email;
         var credential = error.credential;
       });
+  };
+
+  const storeAuth = () => {
+    firebase
+      .auth()
+      .currentUser.getIdToken(/* forceRefresh */ true)
+      .then(function (idToken) {
+        // console.log(idToken);
+        sessionStorage.setItem("token", idToken);
+      })
+      .catch(function (error) {});
   };
 
   useEffect(() => {
