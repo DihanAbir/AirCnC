@@ -16,6 +16,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Product from "../component/services/Product";
 import Message from "../component/Message";
+import CardInfo from "../component/CardInfo";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -162,21 +163,6 @@ function ColorlibStepIcon(props) {
   );
 }
 
-// ColorlibStepIcon.propTypes = {
-//   /**
-//    * Whether this step is active.
-//    */
-//   active: PropTypes.bool,
-//   /**
-//    * Mark the step as completed. Is passed to child components.
-//    */
-//   completed: PropTypes.bool,
-//   /**
-//    * The label displayed in the step icon.
-//    */
-//   icon: PropTypes.node,
-// };
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -191,7 +177,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Select campaign settings", "Create an ad group", "Create an ad"];
+  return ["About Payment", "Shipping Address", "Cart Info"];
 }
 
 function getStepContent(step) {
@@ -201,7 +187,7 @@ function getStepContent(step) {
     case 1:
       return <Message />;
     case 2:
-      return <Product />;
+      return <CardInfo />;
     default:
       return "Unknown step";
   }

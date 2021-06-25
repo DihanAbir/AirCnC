@@ -6,6 +6,8 @@ import DatePicker from "../utils/Date";
 import BasicTextFields from "../utils/Input";
 import PersonSelect from "../utils/PersonSelect";
 import moment from "moment";
+
+import { AiOutlineArrowDown } from "react-icons/ai";
 import { cartContext } from "../App";
 
 function Filter() {
@@ -47,12 +49,12 @@ function Filter() {
   };
   return (
     <div
-      className="border"
+      className="filter border"
       style={{
         height: "80vh",
       }}
     >
-      <p>Where Do You Want To Go</p>
+      <p className="filterP">Where Do You Want To Go</p>
       <div className="p-3">
         <BasicTextFields setlocation={setlocation} />
 
@@ -67,13 +69,17 @@ function Filter() {
           <div className="col-10">
             Adult:{adult} Child: {child} Baby: {baby}
             <br />
-            <small className="mx-auto text-danger">
+            <small className="warning mx-auto ">
               **Have one adult is mendetory!
             </small>
           </div>
           <div className="col-2">
-            <button className="btn btn-danger" onClick={arrowHandler}>
-              {arrow ? "^" : "v"}
+            <button
+              style={{ transform: arrow ? "rotate(180deg)" : "" }}
+              className="btn arrowBtn"
+              onClick={arrowHandler}
+            >
+              <AiOutlineArrowDown />
             </button>
           </div>
         </div>

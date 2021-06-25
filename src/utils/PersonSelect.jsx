@@ -22,7 +22,6 @@ function PersonSelect({ setAdult, setBaby, setChild }) {
       <div
         className={" mt-3 p-3"}
         style={{
-          height: "200px",
           background: "#FDF5E6",
           border: "2px solid salmon",
         }}
@@ -30,7 +29,7 @@ function PersonSelect({ setAdult, setBaby, setChild }) {
         <div className="row">
           <div className="col-4">Adult</div>
           <div className="col-4 offset-2">
-            <div className={classes.root}>
+            <div>
               <Adult setAdult={setAdult} />
             </div>
           </div>
@@ -58,7 +57,11 @@ function Adult({ setAdult }) {
     <ButtonGroup color="secondary" aria-label="outlined secondary button group">
       <Button onClick={() => setCounte(counte + 1)}>+</Button>
       <Button>{counte}</Button>
-      <Button onClick={() => setCounte(counte - 1)}>-</Button>
+      <Button
+        onClick={() => (counte <= 0 ? setCounte(0) : setCounte(counte - 1))}
+      >
+        -
+      </Button>
     </ButtonGroup>
   );
 }
@@ -71,7 +74,11 @@ function Child({ setChild }) {
     <ButtonGroup color="secondary" aria-label="outlined secondary button group">
       <Button onClick={() => setCounte(counte + 1)}>+</Button>
       <Button>{counte}</Button>
-      <Button onClick={() => setCounte(counte - 1)}>-</Button>
+      <Button
+        onClick={() => (counte <= 0 ? setCounte(0) : setCounte(counte - 1))}
+      >
+        -
+      </Button>
     </ButtonGroup>
   );
 }
@@ -84,7 +91,11 @@ function Baby({ setBaby }) {
     <ButtonGroup color="secondary" aria-label="outlined secondary button group">
       <Button onClick={() => setCounte(counte + 1)}>+</Button>
       <Button>{counte}</Button>
-      <Button onClick={() => setCounte(counte - 1)}>-</Button>
+      <Button
+        onClick={() => (counte <= 0 ? setCounte(0) : setCounte(counte - 1))}
+      >
+        -
+      </Button>
     </ButtonGroup>
   );
 }

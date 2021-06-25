@@ -9,11 +9,9 @@ function LogInWIdget({ signedIn, setSignIn }) {
   const [value, setValue] = useState();
   return (
     <div
-      className="content border "
+      className="p-5 content"
       style={{
-        height: "300px",
-        width: "300px",
-        backgroundColor: "salmon",
+        background: "-webkit-linear-gradient(#92fe9d , #00c9ff)",
       }}
     >
       <form
@@ -21,8 +19,17 @@ function LogInWIdget({ signedIn, setSignIn }) {
           e.preventDefault();
         }}
       >
-        <PhoneInput country="US" value={value} onChange={setValue} />
-        <input id="phone" type="tel" name="phone" />
+        <PhoneInput
+          country="US"
+          placeholder="Phone"
+          value={value}
+          id="phone"
+          type="tel"
+          name="phone"
+          onChange={setValue}
+        />
+
+        <button className="btn btn-primary disable">Sign In With Phone</button>
 
         <LoginLogic signedIn={signedIn} setSignIn={setSignIn} />
       </form>

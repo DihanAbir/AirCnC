@@ -16,8 +16,10 @@ function CheckOut() {
             <div className="col-8">
               {cart.singleItem ? <b>{cart.singleItem[0].title}</b> : ""}
               <br />
-              <p>Review: {cart.singleItem[0].review}</p>
-              <small>Review: {cart.singleItem[0].location}</small>
+              <p>Review: {cart.singleItem ? cart.singleItem[0].review : ""}</p>
+              <small>
+                Review: {cart.singleItem ? cart.singleItem[0].location : ""}
+              </small>
             </div>
             <div className="col-4">
               <img

@@ -11,6 +11,7 @@ function SearchResult() {
   const lction = cart.filterData.location.location
     ? cart.filterData.location.location
     : "Dhaka";
+
   console.log(lction);
   const data = ExpData;
 
@@ -28,27 +29,19 @@ function SearchResult() {
   return (
     <div className="container-fluid p-5">
       <div>
-        <div className="mt-4 border text-center" style={{ width: "100%" }}>
-          <input
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-            }}
-            style={{ width: "60%" }}
-            type="search"
-            placeholder="search Location"
-          />
-        </div>
         <p className="text-center mt-5">
-          baby: {cart ? cart.filterData.baby.baby : 0}
+          Baby: {cart ? cart.filterData.baby.baby : 0}
         </p>
         {/* tags end  */}
         <div className="row d-flex">
           <div className="col-7">
-            <p>252 stay for april 13-17, 3 guests</p>
-            <b style={{ color: "#1954E8" }}>
+            <p style={{ fontFamily: "cursive" }}>
+              252 stay for april 13-17, 3 guests
+            </p>
+            <h6 style={{ color: "#0080ff" }}>
               Total Result : {filteredDatas.length ? filteredDatas.length : 0}
-            </b>
-            <h4 style={{ textTransform: "capitalize" }}>
+            </h6>
+            <h4 style={{ color: "salmon", textTransform: "capitalize" }}>
               Stay in{" "}
               <span
                 style={{
@@ -58,7 +51,7 @@ function SearchResult() {
                   textTransform: "uppercase",
                 }}
               >
-                {cart ? cart.filterData.location.location : "Dhaka"}
+                {cart ? cart.filterData.location.location : "Dhaka "}
               </span>
               Division
             </h4>
@@ -82,6 +75,7 @@ function SearchResult() {
                         style={{
                           background: "#E8E7E6",
                           borderRadius: "20px",
+                          // objectFit: "",
                         }}
                         src={item.image}
                         className="img-fluid"
@@ -96,21 +90,21 @@ function SearchResult() {
                       }}
                     >
                       <div className="Service-detials p-4">
-                        <h4
+                        <h5
                           className="text-black"
                           style={{ textTransform: "capitalize" }}
                         >
                           {item.location}
-                        </h4>
+                        </h5>
                         <span>-</span>
-                        <b>{item.type}</b>
+                        <h5>{item.type}</h5>
                         <br />
-                        <h6 className="text-gray">{item.title}</h6>
-                        <p className="text-gray">Review: {item.review}</p>
+                        <h5 className="text-gray">{item.title}</h5>
+                        <h5 className="text-gray">Review: {item.review}</h5>
                         <div className="d-flex justify-content-between">
-                          <p className="text-gray">
+                          <h5 className="text-gray">
                             Total Star: {item.review}{" "}
-                          </p>
+                          </h5>
                           <b className="text-gray">{item.price}/night</b>
                         </div>
                       </div>
@@ -132,28 +126,3 @@ function SearchResult() {
 
 // export default SearchResult;
 export default SearchResult;
-
-// <div className="services  my-3">
-//   <div className="col-12">
-//     <div
-//       className=" border"
-//       style={{
-//         backgroundSize: "cover",
-//         backgroundPosition: "center",
-//         backgroundImage: `url(${item.image})`,
-//         height: "200px",
-//       }}
-//     ></div>
-//   </div>
-
-//   <div className="col-6">
-//     <div className="Service-detials">
-//       <b>{item.location}</b>
-//       <span>-</span>
-//       <b>{item.type}</b>
-//       <br />
-//       <small>{item.title}</small>
-//       <p>review: {item.review}</p>
-//     </div>
-//   </div>
-// </div>;

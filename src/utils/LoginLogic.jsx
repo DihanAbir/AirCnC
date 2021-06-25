@@ -30,7 +30,9 @@ function LoginLogic({ setSignIn, signedIn }) {
         var token = credential.accessToken;
         var { displayName, photoURL, email } = result.user;
         setSignIn({ ...signedIn, displayName, photoURL, email });
-        storeAuth();
+
+        // set localStorage
+        // storeAuth();
         history.replace(from);
 
         // console.log(photoURL);
@@ -63,7 +65,7 @@ function LoginLogic({ setSignIn, signedIn }) {
   return (
     <div>
       <button onClick={handelSignin} className="btn btn-primary">
-        sign in with google{" "}
+        sign in with google
       </button>
     </div>
   );

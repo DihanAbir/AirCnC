@@ -4,6 +4,7 @@ import { cartContext } from "../../App";
 
 function PrivateRoute({ children, ...rest }) {
   const [cart, setCart, signedIn1, setSignIn1] = useContext(cartContext);
+
   console.log(signedIn1.email);
   return (
     <Route

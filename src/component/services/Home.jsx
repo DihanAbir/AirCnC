@@ -14,7 +14,7 @@ function Home(props) {
     <div>
       <div className="row d-flex">
         <div className="col-lg-6 ml-auto">
-          <h5>Home Service</h5>
+          <h5 className="HeaderH5">Home Service</h5>
         </div>
         <div className="col-lg-6 d-flex flex-row-reverse">
           <button className="seemoreBtn btn btn-light">

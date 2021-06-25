@@ -1,14 +1,14 @@
 import React from "react";
 
-function Message({ item }) {
+function CardInfo({ item }) {
   console.log();
   return (
     <div className="my-3">
-      <h3 className="border p-2 ">Shipping Address</h3>
+      <h3 className="border p-2 ">CardInfo Address</h3>
 
       <div className="container">
         <formControl>
-          <label for="fname">First Name</label>
+          <label for="fname">Bank Name</label>
           <input
             type="text"
             id="fname"
@@ -16,7 +16,23 @@ function Message({ item }) {
             placeholder="Your name.."
           />
 
-          <label for="lname">Last Name</label>
+          <label for="lname">Gateway Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+
+          <label for="lname">Card Number</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+
+          <label for="lname">Card Pin</label>
           <input
             type="text"
             id="lname"
@@ -33,11 +49,10 @@ function Message({ item }) {
 
           <label for="subject">Subject</label>
           <textarea></textarea>
-
         </formControl>
       </div>
     </div>
   );
 }
 
-export default Message;
+export default CardInfo;

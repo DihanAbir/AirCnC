@@ -13,7 +13,7 @@ function Exprence(props) {
     <div className="pt-2 pb-5 my-2 border-bottom">
       <div className="row d-flex">
         <div className="col-lg-6 ml-auto">
-          <h5>Exprence</h5>
+          <h5 className="HeaderH5">Exprence</h5>
         </div>
         <div className="col-lg-6 d-flex flex-row-reverse">
           <button className="seemoreBtn btn btn-light">

@@ -11,7 +11,8 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-import Nav from "./component/Nav/Nav";
+import Breadcrum from "./component/Breadcrum";
+import NavCUstome from "./component/Nav/Nav";
 import AllExprence from "./pages/AllExprence";
 import AllServices from "./pages/AllServices";
 import CheckOut from "./pages/CheckOut";
@@ -32,7 +33,8 @@ function App() {
     // <Provider store={store}>
     <cartContext.Provider value={[cart, setCart, signIn1, setSignIn1]}>
       <Router>
-        <Nav />
+        <NavCUstome />
+        <Breadcrum />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/singleService/:id" component={SingleService} />
