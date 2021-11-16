@@ -40,14 +40,15 @@ function App() {
           <Route exact path="/singleService/:id" component={SingleService} />
           <Route exact path="/allServices" component={AllServices} />
           <Route exact path="/allExprence" component={AllExprence} />
-          <PrivateRoute exact path="/search" component={SearchResult} />
+          <Route exact path="/search" component={SearchResult} />
+          {/* <PrivateRoute exact path="/search" component={SearchResult} /> */}
           <Route exact path="/Login" component={Login} />
           <Route exact path="/admin" component={Dashboard} />
 
           {/* <PrivateRoute path="/checkOut" component={CheckOut} /> */}
-          <PrivateRoute path="/checkOut">
+          <Route path="/checkOut">
             <CheckOut />
-          </PrivateRoute>
+          </Route>
         </Switch>
       </Router>
     </cartContext.Provider>

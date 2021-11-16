@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB8ONp8hZm7vHkgf78L0vmCmvznif6z4aM",
-  authDomain: "athena-84a05.firebaseapp.com",
-  databaseURL: "https://athena-84a05.firebaseio.com",
-  projectId: "athena-84a05",
-  storageBucket: "athena-84a05.appspot.com",
-  messagingSenderId: "325468796463",
-  appId: "1:325468796463:web:e8eee9a16e034dad9438da",
+  apiKey: "AIzaSyCXXCyM3zUwQyZS_EVwySWtia1s0ttfrHo",
+  authDomain: "creative-agency-ddaf1.firebaseapp.com",
+  databaseURL: "https://creative-agency-ddaf1.firebaseio.com",
+  projectId: "creative-agency-ddaf1",
+  storageBucket: "creative-agency-ddaf1.appspot.com",
+  messagingSenderId: "390775965346",
+  appId: "1:390775965346:web:1ecbd4dcf8371fdddfb9fb",
 };
 export default firebaseConfig;

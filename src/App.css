@@ -372,3 +372,21 @@ input[type="submit"]:hover {
   background-color: #ccdef1 !important;
 }
 /* shipping steeper  */
+input,
+select,
+textarea {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #6666;
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
+textarea {
+  height: 80px;
+}
+textarea:focus {
+  outline: none;
+}
+input:focus {
+  outline: none;
+}

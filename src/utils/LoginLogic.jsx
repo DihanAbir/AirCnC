@@ -32,7 +32,7 @@ function LoginLogic({ setSignIn, signedIn }) {
         setSignIn({ ...signedIn, displayName, photoURL, email });
 
         // set localStorage
-        // storeAuth();
+        storeAuth();
         history.replace(from);
 
         // console.log(photoURL);
